@@ -1,19 +1,15 @@
 #pragma once
-#include <windows.h>
 #include "ansi.h"
+#include <iostream>
 
 class GUI
 {
 public:
-	const std::string cyan_plus = Colors[White] + "[" + Colors[Cyan] + "+" + Colors[White] + "]";
-	const std::string purple_plus = Colors[White] + "[" + Colors[Purple] + "+" + Colors[White] + "]";
+    const std::string cyan_plus   = Colors[White] + "[" + Colors[Cyan]   + "+" + Colors[White] + "]";
+    const std::string purple_plus = Colors[White] + "[" + Colors[Purple] + "+" + Colors[White] + "]";
 
-	void configure_console()
-	{
-		HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-		DWORD current_conosle_mode{};
-		GetConsoleMode(handle, &current_conosle_mode);
-		current_conosle_mode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING | DISABLE_NEWLINE_AUTO_RETURN;
-		SetConsoleMode(handle, current_conosle_mode);
-	}
+    void configure_console()
+    {
+        // Linux terminals support ANSI escape codes natively — no setup needed.
+    }
 };
