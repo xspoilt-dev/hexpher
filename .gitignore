@@ -1,0 +1,4 @@
+*.o
+golang
+hexpher
+*.go
